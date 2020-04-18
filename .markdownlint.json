@@ -1,0 +1,11 @@
+{
+    "default": true,
+    "MD030": {
+        "ul_single": 3,
+        "ul_multi": 3,
+        "ol_single": 2,
+        "ol_multi": 2
+    },
+    "MD013": false,
+    "no-hard-tabs": false
+}

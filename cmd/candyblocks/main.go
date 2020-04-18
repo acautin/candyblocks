@@ -27,7 +27,7 @@ func main() {
 	}
 	surface.FillRect(nil, 0)
 
-	rect := sdl.Rect{X: 0, Y: 0, W: 200, H: 200}
+	rect := sdl.Rect{X: 0, Y: 0, W: 100, H: 100}
 	surface.FillRect(&rect, 0xffff0000)
 	window.UpdateSurface()
 
