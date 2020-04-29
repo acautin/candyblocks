@@ -9,3 +9,11 @@ To compile `candyblocks` you need to have [`Air`](https://github.com/cosmtrek/ai
 *   `git clone https://github.com/acautin/candyblocks`
 *   `cd candyblocks`
 *   `air`
+
+### Generated files
+
+Don't forget to run `go generate ./...` if you extend the candy type definitions.
+
+### Tests
+
+Unit tests can be run via `gotest ./...`.
