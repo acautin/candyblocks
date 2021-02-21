@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
+        run: sudo apt update && sudo apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
