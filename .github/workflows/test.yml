@@ -22,7 +22,7 @@ jobs:
       run: sudo apt update && sudo apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
 
     - name: Test
-      run: go test ./...-coverprofile=coverage.out
+      run: go test ./... -coverprofile=coverage.out
 
     - name: Upload coverage report to codacy
       uses: brpaz/godacov-action@v1.1.1
