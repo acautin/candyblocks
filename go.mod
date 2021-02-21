@@ -1,8 +1,8 @@
 module github.com/acautin/candyblocks
 
-go 1.14
+go 1.15
 
 require (
-	github.com/stretchr/testify v1.5.1
-	github.com/veandco/go-sdl2 v0.4.1
+	github.com/stretchr/testify v1.7.0
+	github.com/veandco/go-sdl2 v0.4.5
 )

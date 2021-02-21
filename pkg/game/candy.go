@@ -20,7 +20,6 @@ const (
 // Candy is the main entity of the game and appears randomly at the top.
 type Candy struct {
 	Type CandyType
-	//TODO: Add the shape as a series of offset points
 }
 
 func candyAvailable() []Candy {

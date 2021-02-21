@@ -19,7 +19,8 @@ func TestCandyGenerator(t *testing.T) {
 	for i := 0; i < len(expectedTypes); i++ {
 		candy := sg.Generate()
 		assert.NotNil(t, candy, "Generated Candy should not be nil")
-		assert.Equalf(t, expectedTypes[i], candy.Type, "Unexpected candyType got:%s expected:%s", candy.Type, expectedTypes[i])
+		assert.Equalf(t, expectedTypes[i], candy.Type,
+			"Unexpected candyType got:%s expected:%s", candy.Type, expectedTypes[i])
 	}
 
 }
