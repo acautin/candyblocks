@@ -25,7 +25,7 @@ jobs:
       run: go test ./...-coverprofile=coverage.out
 
     - name: Upload coverage report to codacy
-      uses: brpaz/godacov-action@v1
+      uses: brpaz/godacov-action@v1.1.1
       with:
         reportPath: 'coverage.out'
         codacyToken: ${{ secrets.CODACY_TOKEN }}
