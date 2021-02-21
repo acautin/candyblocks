@@ -8,7 +8,7 @@ import (
 )
 
 // TODO: Extract controllers to its own module
-const joystickDeadZone = 8000
+// const joystickDeadZone = 8000
 
 func main() {
 	fmt.Println("Starting...")
@@ -37,17 +37,19 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer window.Destroy()
+	defer func() {
+		panicOnErr(window.Destroy())
+	}()
 
 	surface, err := window.GetSurface()
 	if err != nil {
 		panic(err)
 	}
-	surface.FillRect(nil, 0)
+	panicOnErr(surface.FillRect(nil, 0))
 
 	rect := sdl.Rect{X: 0, Y: 0, W: 100, H: 100}
-	surface.FillRect(&rect, 0xffff0000)
-	window.UpdateSurface()
+	panicOnErr(surface.FillRect(&rect, 0xffff0000))
+	panicOnErr(window.UpdateSurface())
 
 	running := true
 	for running {
@@ -58,18 +60,30 @@ func main() {
 			fmt.Println("Event", event)
 			switch event := event.(type) {
 			case *sdl.QuitEvent:
-				fmt.Println("Quit")
 				running = false
 			case *sdl.KeyboardEvent:
 				fmt.Println("Key event detected")
-				if event.Type == sdl.KEYUP && (event.Keysym.Sym == 13 || event.Keysym.Sym == 32) {
-					fmt.Println("Keyup", event.Keysym.Scancode, event.Keysym.Mod, event.Keysym.Sym)
-					fmt.Println("Start Game")
+				if event.Type == sdl.KEYUP {
+					if event.Keysym.Scancode == sdl.SCANCODE_RETURN || event.Keysym.Sym == sdl.SCANCODE_SPACE {
+						fmt.Println("Keyup", event.Keysym.Scancode, event.Keysym.Mod, event.Keysym.Sym)
+						fmt.Println("Start Game")
+					} else if event.Keysym.Scancode == sdl.SCANCODE_ESCAPE {
+						running = false
+						fmt.Println("Keyup", event.Keysym.Scancode, event.Keysym.Mod, event.Keysym.Sym)
+						fmt.Println("Escape...")
+					}
 				}
 				fmt.Println(event.Type)
 			case *sdl.JoyAxisEvent:
 				fmt.Println("value:", event.Value)
 			}
 		}
+	}
+	fmt.Println("Quit")
+}
+
+func panicOnErr(err error) {
+	if err != nil {
+		panic(err)
 	}
 }
