@@ -48,7 +48,8 @@ func main() {
 	panicOnErr(surface.FillRect(nil, 0))
 
 	rect := sdl.Rect{X: 0, Y: 0, W: 100, H: 100}
-	panicOnErr(surface.FillRect(&rect, 0xffff0000))
+	const colorRed = 0xffff0000
+	panicOnErr(surface.FillRect(&rect, colorRed))
 	panicOnErr(window.UpdateSurface())
 
 	running := true

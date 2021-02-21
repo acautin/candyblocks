@@ -22,5 +22,4 @@ func TestCandyGenerator(t *testing.T) {
 		assert.Equalf(t, expectedTypes[i], candy.Type,
 			"Unexpected candyType got:%s expected:%s", candy.Type, expectedTypes[i])
 	}
-
 }
