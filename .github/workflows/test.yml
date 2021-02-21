@@ -20,5 +20,13 @@ jobs:
 
     - name: Install SDL
       run: sudo apt update && sudo apt install libsdl2{,-image,-mixer,-ttf,-gfx}-dev
+
     - name: Test
-      run: go test -v ./...
+      run: go test ./...-coverprofile=coverage.out
+
+    - name: Upload coverage report to codacy
+      uses: brpaz/godacov-action@v1
+      with:
+        reportPath: 'coverage.out'
+        codacyToken: ${{ secrets.CODACY_TOKEN }}
+        commitId: ${{ github.sha }}
