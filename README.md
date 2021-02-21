@@ -1,5 +1,7 @@
 # CandyBlocks
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/37c0e2843cbf44a6bb44e2e343768f4d)](https://www.codacy.com/gh/acautin/candyblocks/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acautin/candyblocks&amp;utm_campaign=Badge_Grade)
+
 Candy themed blocks game developed using SDL and Go
 
 ## Development
